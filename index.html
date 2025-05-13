@@ -28,8 +28,11 @@
       padding: 0;
       box-sizing: border-box;
     }
-    body {
-      overflow-x: hidden;
+    html, body {
+  overflow-x: hidden;
+}
+
+body {
       font-family: 'Inter', sans-serif;
       background: linear-gradient(to bottom right, #88C9FF, #ffffff);
       color: var(--text);
@@ -188,6 +191,29 @@
       z-index: 1000;
     }
     @media (max-width: 768px) {
+  body {
+    padding-bottom: 100px;
+  }
+  .section p {
+    font-size: 1rem;
+  }
+  .section h2 {
+    font-size: 1.5rem;
+  }
+  .service-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .service-item {
+    width: 90%;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .cta {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
       nav { display: none; }
       .hamburger { display: block; }
     }
@@ -267,13 +293,17 @@
   <header>
     <div class="logo">R&Y Professional Cleaning Services</div>
     <nav>
-      <a href="#hero">Home</a>
+      <a href="#home">Home</a>
       <a href="#commercial">Commercial</a>
       <a href="#residential">Residential</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      
-      
+      <a href="https://www.facebook.com/profile.php?id=61554108135672" target="_blank">
+        <img src="Facebook.png" alt="Facebook" style="height: 20px; vertical-align: middle;">
+      </a>
+      <a href="https://www.yelp.com/biz/r-and-y-professional-cleaning-services-hendersonville" target="_blank">
+        <img src="Yelp.png" alt="Yelp" style="height: 20px; vertical-align: middle;">
+      </a>
     </nav>
     <div class="hamburger">☰</div>
     <div class="mobile-menu">
@@ -292,7 +322,6 @@
     </a>
   </section>
 
-  <div class="divider"></div>
   <section id="commercial" class="section fade-target">
     <h2>Commercial Services</h2>
     <p>We know that the cleanliness of your business plays a significant role in creating a positive impression for clients and employees. Our commercial cleaning services are flexible and tailored to meet the unique needs of your business.</p>
@@ -428,10 +457,4 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
-<a href="https://www.facebook.com/profile.php?id=61554108135672" target="_blank" style="position: fixed; bottom: 60px; left: 5px; z-index: 999;">
-  <img src="Facebook-icon.png" alt="Facebook" style="height: 30px;">
-</a>
-<a href="https://www.yelp.com/biz/r-and-y-professional-cleaning-services-hendersonville" target="_blank" style="position: fixed; bottom: 100px; left: 5px; z-index: 999;">
-  <img src="Yelp.png" alt="Yelp" style="height: 30px;">
-</a>
 </html>
