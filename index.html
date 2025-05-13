@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>R&Y Professional Cleaning Services</title>
+  <title>R&Y Cleaning Services</title>
   <link rel="icon" href="RY-Logo.jpeg" type="image/jpeg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -259,6 +259,10 @@ body {
     }
   }
   #topBtn {
+
+
+
+
     position: fixed;
     bottom: 60px;
     right: 30px;
@@ -289,7 +293,7 @@ body {
 </head>
 <body>
   <header>
-    <div class="logo">R&Y Professional Cleaning Services</div>
+    <div class="logo">R&Y Cleaning Services</div>
     <nav>
       <a href="#hero">Home</a>
       <a href="#commercial">Commercial</a>
@@ -297,7 +301,7 @@ body {
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
       <a href="https://www.facebook.com/profile.php?id=61554108135672" target="_blank">
-        <img src="Facebook-icon.png" alt="Facebook" style="height: 30px; vertical-align: middle;">
+        <img src="Facebook_icon.png" alt="Facebook" style="height: 35px; vertical-align: middle;">
       </a>
       <a href="https://www.yelp.com/biz/r-and-y-professional-cleaning-services-hendersonville" target="_blank">
         <img src="Yelp.png" alt="Yelp" style="height: 30px; vertical-align: middle;">
@@ -331,8 +335,8 @@ body {
       <div class="service-item">Disinfection & Sanitization</div>
       <div class="service-item">Restroom Cleaning</div>
       <div class="service-item">Floor Waxing</div>
-      <div class="service-item">Pressure Washing</div>
       <div class="service-item">Carpet & Upholstery Cleaning</div>
+      <div class="service-item">Pressure Washing</div>
     </div>
   </section>
 
@@ -341,7 +345,7 @@ body {
     <h2>Residential Services</h2>
     <p>We understand how important a clean and organized home is for your peace of mind and health. Our residential cleaning services are designed to ensure all areas, that are typically overlooked, are touched and that your living space remains spotless, fresh, and welcoming.</p>
     <div class="service-list">
-      <div class="service-item">Regular House Cleaning and Sanitation</div>
+      <div class="service-item">Regular House Cleaning & Sanitation</div>
       <div class="service-item">Deep Cleaning</div>
       <div class="service-item">Move-In/Move-Out Cleaning</div>
       <div class="service-item">Post-Construction Cleaning</div>
@@ -353,9 +357,11 @@ body {
   <div class="divider"></div>
   <section id="about" class="section fade-target">
     <h2>About Us</h2>
-    <p>R&Y Professional Services is a family-owned cleaning company proudly serving the Nashville, Tennessee area for over a decade. Our story began with a simple mission: to provide exceptional cleaning services with a personal touch. As a family-run business, we understand the importance of trust, reliability, and consistency in every service we provide. Over the years, we've built lasting relationships with our clients by delivering top-quality residential and commercial cleaning services. Whether you're a homeowner looking for a spotless living space or a business in need of a pristine environment, we pride ourselves on ensuring every job is completed with the utmost attention to detail and care. We value consistency in our work and always strive to meet and exceed your expectations to help you focus on doing what you do best. At R&Y Professional Services, our team is dedicated to making your space clean, safe, and comfortable, one job at a time.</p>
+    <p>R&Y Professional Cleaning Services is a family-owned cleaning company proudly serving the Nashville, Tennessee area for over a decade. Our story began with a simple mission: to provide exceptional cleaning services with a personal touch. As a family-run business, we understand the importance of trust, reliability, and consistency in every service we provide. Over the years, we've built lasting relationships with our clients by delivering top-quality residential and commercial cleaning services. Whether you're a homeowner looking for a spotless living space or a business in need of a pristine environment, we pride ourselves on ensuring every job is completed with the utmost attention to detail and care. We value consistency in our work and always strive to meet and exceed your expectations to help you focus on doing what you do best. At R&Y Professional Cleaning Services, our team is dedicated to making your space clean, safe, and comfortable, one job at a time.</p>
+    <p style="font-family: cursive; font-size: 2.0rem; text-align: center;">
+    Commit to the Lord whatever you do, and he will establish your plans.<br>
+  <em>Proverbs 16:3</em>
   </section>
-
   <div class="divider"></div>
   <section id="contact" class="section">
     <h2>Contact Us</h2>
@@ -365,7 +371,7 @@ body {
     </p>
     <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1rem;">
       <a href="https://www.facebook.com/profile.php?id=61554108135672" target="_blank">
-        <img src="Facebook-icon.png" alt="Facebook" style="height: 50px;">
+        <img src="Facebook_icon.png" alt="Facebook" style="height: 60px;">
       </a>
       <a href="https://www.yelp.com/biz/r-and-y-professional-cleaning-services-hendersonville" target="_blank">
         <img src="Yelp.png" alt="Yelp" style="height: 50px;">
@@ -436,14 +442,18 @@ body {
     bubble.classList.add('bubble');
     bubble.style.width = `${size}px`;
     bubble.style.height = `${size}px`;
-    bubble.style.left = `${Math.random() * window.innerWidth}px`;
+    bubble.style.left = `${Math.random() * (window.innerWidth - 80)}px`;
     bubble.style.top = `${Math.random() * (window.innerHeight + window.scrollY)}px`;
     bubble.style.position = 'absolute';
     bubble.addEventListener('click', () => bubble.remove());
     bubble.style.border = '1px solid rgba(255, 255, 255, 0.6)';
     bubble.style.background = 'radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2))';
     bubble.style.boxShadow = 'inset -2px -2px 6px rgba(255,255,255,0.4), inset 2px 2px 6px rgba(0,0,0,0.1)';
-    document.body.appendChild(bubble);
+    const aboutSection = document.getElementById('about');
+    const aboutBottom = aboutSection.offsetTop + aboutSection.offsetHeight;
+    if (window.scrollY + window.innerHeight < aboutBottom) {
+      document.body.appendChild(bubble);
+    }
     setTimeout(() => bubble.remove(), 18000); // one timeout is enough
   }
 
