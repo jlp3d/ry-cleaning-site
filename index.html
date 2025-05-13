@@ -1,251 +1,448 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>R&Y Professional Services</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>R&Y Professional Cleaning Services</title>
+  <link rel="icon" href="RY-Logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #ffffff;
+    .cta {
+      transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
     }
-    header {∂
-      background: linear-gradient(to right, #8cc6ff, #ffffff);
-      padding: 3rem 2rem;
+    .cta:active {
+      transform: scale(0.97);
+      background-color: #6fb8f4;
+    }
+    .section {
+      scroll-margin-top: 100px;
+    }
+    :root {
+      --blue: #88C9FF;
+      --navy: #000C54;
+      --bg: linear-gradient(to bottom right, #ffffff, #f0f8ff);
+      --text: #222;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+  overflow-x: hidden;
+}
+
+body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #88C9FF, #ffffff);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: #fff;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      border-bottom: 2px solid #000;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      z-index: 1000;
     }
-    .branding {
-      display: flex;
-      align-items: center;
-    }
-    .branding img {
-      width: 100px;
-      margin-right: 1rem;
-    }
-    .branding h1 {
-      margin: 0;
-      font-size: 1.8rem;
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--blue);
     }
     nav {
       display: flex;
       gap: 1rem;
-      margin-top: 1rem;
+      align-items: center;
     }
     nav a {
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 4px;
-      background: linear-gradient(to bottom right, #8cc6ff, #ffffff);
-      color: #000;
       text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s ease;
+      color: var(--navy);
+      font-weight: 500;
+      transition: color 0.3s;
     }
     nav a:hover {
-      transform: scale(1.05);
-      background: linear-gradient(to bottom right, #5ba6e6, #d0e9ff);
+      color: var(--blue);
     }
-    .social-icons {
-      display: flex;
-      gap: 1rem;
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--navy);
     }
-    .social-icons a {
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-    .social-icons a:hover {
-      transform: scale(1.2);
-    }
-    .social-icons a img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: #f0f0f0;
-      padding: 5px;
-    }
-    section {
-      padding: 4rem 2rem;
-    }
-    .content {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .section-split {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 2rem;
-    }
-    .section-split .text {
-      flex: 2;
-      min-width: 280px;
-    }
-    .section-split .image {
-      flex: 1;
-      text-align: center;
-    }
-    .section-split .image img {
-      max-width: 100%;
-      border-radius: 8px;
-    }
-    hr {
-      border: none;
-      border-top: 2px solid #000;
-      margin: 0;
-      width: 100vw;
-    }
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: center;
-      }
-      .section-split {
-        flex-direction: column;
-      }
-    }
-    @media (max-width: 768px) {
-    header {
+    .mobile-menu {
+      display: none;
       flex-direction: column;
-      align-items: flex-start;
+      background-color: #fff;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 100%;
       padding: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-    nav {
-      flex-direction: column;
-      align-items: flex-start;
-      margin-left: 0 !important;
-      gap: 0.5rem;
-    }
-    nav a {
-      display: block;
+    .mobile-menu a {
       padding: 0.5rem 0;
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 500;
+      border-bottom: 1px solid #eee;
     }
-    .branding {
+    .hero {
+      background: url('RY-Cleaning.png') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      flex-direction: column;
+      padding: 2rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    }
+    .cta {
+      background: var(--blue);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .cta:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .section h2 {
+      font-size: 2rem;
+      color: var(--navy);
       margin-bottom: 1rem;
     }
-    .section-split {
-      flex-direction: column;
+    .section p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
     }
-    .section-split .image,
-    .section-split .text {
-      width: 100%;
-    }
-    .social-icons {
+    .service-list {
+      display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      width: 100%;
-      margin-top: 1rem;
+      gap: 1rem;
     }
+    .service-item {
+      background-color: #f8f9fa;
+      border: 1px solid #e0e0e0;
+      padding: 1rem;
+      border-radius: 6px;
+      width: 220px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .contact-info {
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      line-height: 1.8;
+    }
+    .divider {
+      width: 0;
+      height: 2px;
+      background: var(--navy);
+      margin: 2rem auto;
+      transition: width 1s ease;
+    }
+    .divider.visible {
+      width: 60%;
+    }
+    footer {
+      background-color: var(--navy);
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    @media (max-width: 768px) {
+  body {
+    padding-bottom: 100px;
+  }
+  .section p {
+    font-size: 1rem;
+  }
+  .section h2 {
+    font-size: 1.5rem;
+  }
+  .service-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .service-item {
+    width: 90%;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .cta {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+      nav { display: none; }
+      .hamburger { display: block; }
+    }
+    @keyframes zoomIn { 0% { transform: scale(0.96); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+    @keyframes slideFadeDown { 0% { transform: translateY(-20px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+    @keyframes cardPop { 0% { transform: scale(0.9); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+    @keyframes dividerGlow { 0% { width: 0; opacity: 0.3; } 100% { width: 60%; opacity: 1; } }
+    .section.visible { animation: zoomIn 0.8s ease forwards; }
+    .section.visible h2 { animation: slideFadeDown 0.8s ease forwards; }
+    .section.visible .service-item { animation: cardPop 0.6s ease forwards; }
+    .divider.visible { animation: dividerGlow 1s ease forwards; }
+    .bubble {
+    position: fixed;
+    top: -60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+    z-index: 0;
+    animation: rise 12s infinite ease-in;
+  }
+
+  @keyframes rise {
+    0% {
+      transform: translateY(0) scale(0.5);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) scale(1);
+      opacity: 0;
+    }
+  }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-120vh) scale(1);
+      opacity: 0;
+    }
+  }
+  #topBtn {
+
+
+
+
+    position: fixed;
+    bottom: 60px;
+    right: 30px;
+    z-index: 999;
+    font-size: 14px;
+    padding-left: 10px;
+    padding: 10px 15px;
+    border: none;
+    background: var(--navy);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    display: none;
+    transition: opacity 0.3s ease;
+  }
+
+  #topBtn:hover {
+    background: var(--blue);
+  }
+
+  nav a:hover {
+    color: var(--blue);
+    transform: scale(1.05);
+    transition: color 0.3s ease, transform 0.3s ease;
   }
 </style>
 </head>
 <body>
-  <section id="home" style="position: relative; height: 60vh; overflow: hidden;">
-    <header style="position: absolute; top: 0; left: 0; width: 100%; z-index: 2; display: flex; justify-content: flex-start; padding-left: 3rem; align-items: center; padding: 1rem 2rem; background: #ffffff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); gap: 2rem;">
-      <div class="branding" style="display: flex; align-items: center; margin-right: 2rem;">
-        <img src="RY-Logo.jpeg" alt="R&Y Logo" style="width: 60px; height: auto; margin-right: 1rem;">
-      </div>
-      <nav style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin-left: 10%;">
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXA7eN2af0-DlpeC6qKJv440md1LhGXdxFj1f2LvdtxVlsNA/viewform" target="_blank" style="text-decoration: none; color: #007acc; font-weight: bold; position: relative;">Submit Inquiry</a>
-  <a href="#services" style="text-decoration: none; color: #007acc; font-weight: bold; position: relative;">Services</a>
-  <a href="#about" style="text-decoration: none; color: #007acc; font-weight: bold; position: relative;">About Us</a>
-  <a href="#contact" style="text-decoration: none; color: #007acc; font-weight: bold; position: relative;">Contact Us</a>
-</nav>
-<style>
-  nav a::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #007acc;
-    transition: width 0.3s;
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-  }
-  nav a:hover::after {
-    width: 100%;
-  }
-</style>
-    </header>
-    <img src="Cleaning.png" alt="Cleaning" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
-    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; text-shadow: 2px 2px 8px rgba(0,0,0,0.8);">
-      <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Need professional cleaning service?</h1>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXA7eN2af0-DlpeC6qKJv440md1LhGXdxFj1f2LvdtxVlsNA/viewform" target="_blank" style="padding: 1rem 2rem; background-color: #007acc; color: white; border-radius: 25px; text-decoration: none; font-weight: bold; transition: background-color 0.3s ease;">Submit Inquiry</a>
-    </div>
-  </section>
   <header>
-    <div class="branding">
-      <img src="RY-Logo.jpeg" alt="R&Y Logo">
-      <div>
-        <h1>R&Y Professional Services</h1>
-        <p>BRINGING COMFORT IN CLEANING</p>
-      </div>
-    </div>
-    
-    <div class="social-icons">
+    <div class="logo">R&Y Professional Cleaning Services</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#commercial">Commercial</a>
+      <a href="#residential">Residential</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
       <a href="https://www.facebook.com/profile.php?id=61554108135672" target="_blank">
-        <img src="Facebook_icon.png" alt="Facebook">
+        <img src="Facebook.png" alt="Facebook" style="height: 20px; vertical-align: middle;">
       </a>
       <a href="https://www.yelp.com/biz/r-and-y-professional-cleaning-services-hendersonville" target="_blank">
-        <img src="Yelp.png" alt="Yelp">
+        <img src="Yelp.png" alt="Yelp" style="height: 20px; vertical-align: middle;">
       </a>
+    </nav>
+    <div class="hamburger">☰</div>
+    <div class="mobile-menu">
+      <a href="#hero">Home</a>
+      <a href="#commercial">Commercial</a>
+      <a href="#residential">Residential</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </div>
   </header>
 
-  <hr>
+  <section id="hero" class="hero">
+    <h1>BRINGING COMFORT IN CLEANING</h1>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXA7eN2af0-DlpeC6qKJv440md1LhGXdxFj1f2LvdtxVlsNA/viewform" target="_blank">
+      <button class="cta">SUBMIT INQUIRY FORM</button>
+    </a>
+  </section>
 
-  <section id="services" style="background: linear-gradient(to right, #ffffff, #8cc6ff);">
-    <div class="content">
-      <h2>Residential Services</h2>
-      <div class="section-split">
-        <div class="text">
-          <p>We understand how important a clean and organized home is for your peace of mind and health. Our residential cleaning services are designed to ensure all areas, that are typically overlooked, are touched and that your living space remains spotless, fresh, and welcoming.</p>
-          <p>With a strong focus in:</p>
-          <ul>
-            <li>Regular House Cleaning and Sanitation</li>
-            <li>Deep Cleaning</li>
-            <li>Move-In/Move-Out Cleaning</li>
-            <li>Post-Construction Cleaning</li>
-            <li>Carpet and Upholstery Cleaning</li>
-            <li>Window Cleaning</li>
-          </ul>
-        </div>
-        <div class="image">
-          <img src="Cleaning-icon.png" alt="Cleaning Icon">
-        </div>
-      </div>
+  <section id="commercial" class="section fade-target">
+    <h2>Commercial Services</h2>
+    <p>We know that the cleanliness of your business plays a significant role in creating a positive impression for clients and employees. Our commercial cleaning services are flexible and tailored to meet the unique needs of your business.</p>
+    <div class="service-list">
+      <div class="service-item">Office Cleaning</div>
+      <div class="service-item">Retail Space Cleaning</div>
+      <div class="service-item">Post-Construction Commercial Cleaning</div>
+      <div class="service-item">Janitorial Services</div>
+      <div class="service-item">Disinfection & Sanitization</div>
+      <div class="service-item">Restroom Cleaning</div>
+      <div class="service-item">Floor Waxing</div>
+      <div class="service-item">Pressure Washing</div>
     </div>
   </section>
 
-  <hr>
-
-  <section id="about" style="background: linear-gradient(to right, #8cc6ff, #ffffff);">
-    <div class="content">
-      <h2>About Us</h2>
-      <p>R&Y Professional Services is a family-owned cleaning company proudly serving the Nashville, Tennessee area for over a decade. Our story began with a simple mission: to provide exceptional cleaning services with a personal touch. As a family-run business, we understand the importance of trust, reliability, and consistency in every service we provide.</p>
-      <p>Whether you're a homeowner looking for a spotless living space or a business in need of a pristine environment, we pride ourselves on ensuring every job is completed with the utmost attention to detail and care. We value consistency in our work and always strive to meet and exceed your expectations to help you focus on doing what you do best. At R&Y Professional Services, our team is dedicated to making your space clean, safe, and comfortable, one job at a time.</p>
+  <div class="divider"></div>
+  <section id="residential" class="section fade-target">
+    <h2>Residential Services</h2>
+    <p>We understand how important a clean and organized home is for your peace of mind and health. Our residential cleaning services are designed to ensure all areas, that are typically overlooked, are touched and that your living space remains spotless, fresh, and welcoming.</p>
+    <div class="service-list">
+      <div class="service-item">Regular House Cleaning and Sanitation</div>
+      <div class="service-item">Deep Cleaning</div>
+      <div class="service-item">Move-In/Move-Out Cleaning</div>
+      <div class="service-item">Post-Construction Cleaning</div>
+      <div class="service-item">Carpet and Upholstery Cleaning</div>
+      <div class="service-item">Window Cleaning</div>
     </div>
   </section>
 
-  <hr>
-
-  <section id="contact" style="background: linear-gradient(to right, #ffffff, #8cc6ff);">
-    <div class="content">
-      <h2>Contact Us Today</h2>
-      <div class="section-split">
-        <div class="text">
-          <p><strong>Direct line:</strong> (615) 485-4959</p>
-          <p><strong>Email:</strong> info@rycleaningservices.com</p>
-        </div>
-        <div class="image">
-          <img src="RY-Logo.jpeg" alt="Contact Image">
-        </div>
-      </div>
-    </div>
+  <div class="divider"></div>
+  <section id="about" class="section fade-target">
+    <h2>About Us</h2>
+    <p>R&Y Professional Services is a family-owned cleaning company proudly serving the Nashville, Tennessee area for over a decade. Our story began with a simple mission: to provide exceptional cleaning services with a personal touch. As a family-run business, we understand the importance of trust, reliability, and consistency in every service we provide. Over the years, we've built lasting relationships with our clients by delivering top-quality residential and commercial cleaning services. Whether you're a homeowner looking for a spotless living space or a business in need of a pristine environment, we pride ourselves on ensuring every job is completed with the utmost attention to detail and care. We value consistency in our work and always strive to meet and exceed your expectations to help you focus on doing what you do best. At R&Y Professional Services, our team is dedicated to making your space clean, safe, and comfortable, one job at a time.</p>
   </section>
-</body>
+
+  <div class="divider"></div>
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p class="contact-info">
+      Phone: (615) 485-4959<br>
+      Email: <a href="mailto:info@rycleaningservices.com">info@rycleaningservices.com</a>
+    </p>
+    <div style="margin-bottom: 5rem;"></div>
+  </section>
+  
+  <footer>
+    Page created by Jonathan Pedrero
+  </footer>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const navLinks = document.querySelectorAll('nav a');
+
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function () {
+          const isVisible = mobileMenu.style.display === 'flex';
+          mobileMenu.style.display = isVisible ? 'none' : 'flex';
+        });
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.style.display = 'none';
+          });
+        });
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href');
+          const target = document.querySelector(targetId);
+          if (target && target.classList.contains('section')) {
+            target.classList.remove('visible');
+            void target.offsetWidth;
+            target.classList.add('visible');
+          }
+        });
+      });
+
+      const sections = document.querySelectorAll('.section');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      sections.forEach(section => observer.observe(section));
+
+      const dividers = document.querySelectorAll('.divider');
+      const dividerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      dividers.forEach(divider => dividerObserver.observe(divider));
+    });
+  </script>
+  <script>
+    function createBubble() {
+      const bubble = document.createElement('div');
+      const size = Math.random() * 50 + 40;
+      bubble.classList.add('bubble');
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      bubble.style.left = `${Math.random() * window.innerWidth}px`;
+      bubble.style.top = `${Math.random() * (window.innerHeight + window.scrollY)}px`;
+      bubble.style.position = 'absolute';
+      bubble.addEventListener('click', () => bubble.remove());
+      bubble.style.border = '1px solid rgba(255, 255, 255, 0.6)';
+      bubble.style.background = 'radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2))';
+      bubble.style.boxShadow = 'inset -2px -2px 6px rgba(255,255,255,0.4), inset 2px 2px 6px rgba(0,0,0,0.1)';
+      document.body.appendChild(bubble);
+      setTimeout(() => bubble.remove(), 18000);
+      setTimeout(() => bubble.remove(), 12000);
+    }
+
+    const bubbleInterval = setInterval(() => {
+      if (Math.random() < 0.5) createBubble();
+    }, 600);
+    for (let i = 0; i < 30; i++) createBubble();
 </html>
